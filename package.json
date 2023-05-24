@@ -1,0 +1,24 @@
+{
+  "name": "interactive-rating-component",
+  "version": "1.0.0",
+  "description": "A Frontend Mentor challenge",
+  "main": "./src/index.ts",
+  "repository": "https://github.com/dowely/interactive-rating-component.git",
+  "author": "Marcin Ogar <marcin.ogar@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "build": "webpack",
+    "dev": "webpack serve"
+  },
+  "dependencies": {
+    "ts-loader": "^9.4.3",
+    "typescript": "^5.0.4",
+    "webpack": "^5.83.1",
+    "webpack-cli": "^5.1.1"
+  },
+  "devDependencies": {
+    "prettier": "2.8.8",
+    "webpack-dev-server": "^4.15.0"
+  }
+}
