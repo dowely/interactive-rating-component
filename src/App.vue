@@ -1,3 +1,14 @@
 <template>
-  <h1>Howdy!!!</h1>
+  <h1>{{ greeting }}</h1>
 </template>
+
+<script lang="ts">
+export default {
+  name: "App",
+  data() {
+    return {
+      greeting: "Howdy!!!",
+    };
+  },
+};
+</script>
