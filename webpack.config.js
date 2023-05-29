@@ -1,6 +1,7 @@
 const webpack = require("webpack");
 const path = require("path");
 const { VueLoaderPlugin } = require("vue-loader");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: "./src/index.ts",
@@ -20,6 +21,10 @@ module.exports = {
         test: /\.vue$/,
         loader: "vue-loader",
       },
+      {
+        test: /\.scss$/,
+        use: ["vue-style-loader", "css-loader", "sass-loader"],
+      },
     ],
   },
   resolve: {
@@ -27,6 +32,10 @@ module.exports = {
   },
   plugins: [
     new VueLoaderPlugin(),
+    new HtmlWebpackPlugin({
+      filename: "index.html",
+      template: "./src/index-template.html",
+    }),
     new webpack.DefinePlugin({
       __VUE_OPTIONS_API__: JSON.stringify(true),
       __VUE_PROD_DEVTOOLS__: JSON.stringify(false),
@@ -35,11 +44,10 @@ module.exports = {
   mode: "development",
   devServer: {
     port: 3050,
-    static: "./",
+    static: "./dist",
     hot: true,
-    liveReload: false,
+    watchFiles: "./src/index-template.html",
     historyApiFallback: true,
     open: true,
-    host: "0.0.0.0",
   },
 };

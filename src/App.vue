@@ -7,8 +7,12 @@ export default {
   name: "App",
   data() {
     return {
-      greeting: "Howdy!!!",
+      greeting: "Howdy!",
     };
   },
 };
 </script>
+
+<style lang="scss">
+@import "./styles.scss";
+</style>
