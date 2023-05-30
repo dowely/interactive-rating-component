@@ -1,10 +1,17 @@
 <template>
-  <h1>{{ greeting }}</h1>
+  <div class="wrapper">
+    <Card />
+  </div>
 </template>
 
 <script lang="ts">
+import Card from "./components/Card.vue";
+
 export default {
   name: "App",
+
+  components: { Card },
+
   data() {
     return {
       greeting: "Howdy!",
@@ -14,5 +21,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import "./styles.scss";
+@import "./styles/index.scss";
 </style>

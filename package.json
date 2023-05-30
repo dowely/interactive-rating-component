@@ -12,6 +12,7 @@
     "dev": "webpack serve"
   },
   "dependencies": {
+    "normalize.scss": "^0.1.0",
     "vue": "^3.3.4"
   },
   "devDependencies": {
