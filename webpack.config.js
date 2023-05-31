@@ -1,7 +1,25 @@
 const webpack = require("webpack");
 const path = require("path");
+const fse = require("fs-extra");
+const { rimrafSync } = require("rimraf");
 const { VueLoaderPlugin } = require("vue-loader");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+
+class RunBeforeCompile {
+  apply(compiler) {
+    compiler.hooks.beforeCompile.tap("Clean dist", function () {
+      rimrafSync("./dist");
+    });
+  }
+}
+
+class RunAfterCompile {
+  apply(compiler) {
+    compiler.hooks.done.tap("Copy assets", function () {
+      fse.copySync("./src/assets", "./dist/assets");
+    });
+  }
+}
 
 module.exports = {
   entry: "./src/index.ts",
@@ -40,6 +58,8 @@ module.exports = {
       __VUE_OPTIONS_API__: JSON.stringify(true),
       __VUE_PROD_DEVTOOLS__: JSON.stringify(false),
     }),
+    new RunBeforeCompile(),
+    new RunAfterCompile(),
   ],
   mode: "development",
   devServer: {
