@@ -1,8 +1,9 @@
 import { createApp } from "vue";
-import App from "./App.vue";
+import InteractiveRatingComponent from "./InteractiveRatingComponent.vue";
+import "./styles/index.scss";
 
-const app = createApp(App);
-app.mount("#app");
+const app = createApp(InteractiveRatingComponent);
+app.mount("#interactive-rating-component");
 
 if (module.hot) {
   module.hot.accept();
