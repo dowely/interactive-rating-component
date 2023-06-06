@@ -5,7 +5,13 @@
 </template>
 
 <script lang="ts">
+import { useRatingStore } from "@/store/RatingStore";
+import { mapState } from "pinia";
+
 export default {
   name: "Rating",
+  computed: {
+    ...mapState(useRatingStore, ["rating"]),
+  },
 };
 </script>
