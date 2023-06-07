@@ -1,26 +1,53 @@
 <template>
-  <form class="form">
-    <input type="radio" name="rating" id="one" value="1" />
-    <label for="one">1</label>
-
-    <input type="radio" name="rating" id="two" value="2" />
-    <label for="two">2</label>
-
-    <input type="radio" name="rating" id="three" value="3" />
-    <label for="three">3</label>
-
-    <input type="radio" name="rating" id="four" value="4" />
-    <label for="four">4</label>
-
-    <input type="radio" name="rating" id="five" value="5" />
-    <label for="five">5</label>
+  <form class="form" @submit.prevent="handleSubmit">
+    <template v-for="(val, key) in scores">
+      <input
+        type="radio"
+        name="rating"
+        :id="val"
+        :value="key"
+        @input="handleInput"
+      />
+      <label :for="val">{{ key }}</label>
+    </template>
 
     <button type="submit">Submit</button>
   </form>
 </template>
 
 <script lang="ts">
+import { useRatingStore } from "@/store/RatingStore";
+import { mapActions, mapState } from "pinia";
+
 export default {
   name: "FormComponent",
+  data() {
+    return {
+      scores: {
+        1: "one",
+        2: "two",
+        3: "three",
+        4: "four",
+        5: "five",
+      },
+    };
+  },
+  computed: {
+    ...mapState(useRatingStore, ["rating"]),
+  },
+  methods: {
+    ...mapActions(useRatingStore, ["setRating", "setSubmitted"]),
+    handleInput(event: Event) {
+      const value = (event.target as HTMLInputElement).value;
+      this.setRating(value);
+    },
+    handleSubmit(event: Event) {
+      if (!this.rating) {
+        alert("Please set a rating before submitting.");
+        return;
+      }
+      this.setSubmitted();
+    },
+  },
 };
 </script>

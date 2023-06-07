@@ -3,6 +3,7 @@
     "outDir": "./dist/",
     "baseUrl": "./",
     "noImplicitAny": true,
+    "noImplicitThis": false,
     "module": "es6",
     "target": "es5",
     "allowJs": true,

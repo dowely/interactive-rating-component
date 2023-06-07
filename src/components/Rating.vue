@@ -1,6 +1,6 @@
 <template>
   <div class="rating">
-    <p class="rating__text">You selected 4 out of 5</p>
+    <p class="rating__text">You selected {{ rating }} out of 5</p>
   </div>
 </template>
 

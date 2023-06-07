@@ -1,9 +1,9 @@
 <template>
   <div class="card">
     <Image />
-    <Rating />
+    <Rating v-if="submitted" />
     <Info />
-    <FormComponent />
+    <FormComponent v-if="!submitted" />
   </div>
 </template>
 
@@ -12,9 +12,14 @@ import Image from "./Image.vue";
 import Rating from "./Rating.vue";
 import Info from "./Info.vue";
 import FormComponent from "./FormComponent.vue";
+import { mapState } from "pinia";
+import { useRatingStore } from "@/store/RatingStore";
 
 export default {
   name: "Card",
   components: { Image, Rating, Info, FormComponent },
+  computed: {
+    ...mapState(useRatingStore, ["submitted"]),
+  },
 };
 </script>
