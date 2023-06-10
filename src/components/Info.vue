@@ -1,5 +1,5 @@
 <template>
-  <div class="info">
+  <div class="info" :class="{ 'info--center': submitted }">
     <h3 class="info__headline">
       {{ submitted ? "Thank you!" : "How did we do?" }}
     </h3>

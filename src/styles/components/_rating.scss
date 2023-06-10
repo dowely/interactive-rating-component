@@ -1,0 +1,12 @@
+.rating {
+  text-align: center;
+
+  &__text {
+    padding: 6px 12px;
+    color: $primary-orange;
+    background-color: transparentize($color: $white, $amount: 0.92);
+    margin: 1.5rem 0 0.5rem;
+    display: inline-block;
+    border-radius: 999px;
+  }
+}

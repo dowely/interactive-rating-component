@@ -7,8 +7,14 @@
         :id="val"
         :value="key"
         @input="handleInput"
+        hidden
       />
-      <label :for="val">{{ key }}</label>
+      <label
+        :for="val"
+        class="form__label"
+        :class="{ 'form__label--active': String(key) === rating }"
+        >{{ key }}</label
+      >
     </template>
 
     <button type="submit">Submit</button>

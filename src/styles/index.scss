@@ -1,6 +1,10 @@
 @import "normalize.scss";
 @import "base/variables";
-@import "base/mixins";
 @import "base/global";
 @import "components/interactiveRatingComponent";
+@import "components/card";
+@import "components/image";
+@import "components/rating";
+@import "components/info";
+@import "components/form";
 @import "components/attribution";

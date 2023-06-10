@@ -1,5 +1,5 @@
 <template>
-  <div class="image">
+  <div class="image" :class="{ 'image--submitted': submitted }">
     <img
       v-if="submitted"
       class="image__thanks"

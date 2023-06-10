@@ -1,0 +1,42 @@
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  &__label {
+    line-height: 42px;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+    background-color: transparentize($color: $white, $amount: 0.92);
+    cursor: pointer;
+
+    &:hover:not(&--active) {
+      background-color: $primary-orange;
+      color: $white;
+    }
+
+    &--active {
+      background-color: $medium-grey;
+      color: $white;
+    }
+  }
+
+  button[type="submit"] {
+    background-color: $primary-orange;
+    width: 100%;
+    border: none;
+    color: $white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 12px;
+    border-radius: 9999px;
+    margin-top: 25px;
+
+    &:hover {
+      background-color: $white;
+      color: $primary-orange;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+.image {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  background-color: transparentize($color: $white, $amount: 0.92);
+  border-radius: 50%;
+
+  &--submitted {
+    width: 100%;
+    height: auto;
+    background: none;
+  }
+
+  &__star {
+    margin: auto;
+    width: 14px;
+    height: 14px;
+  }
+
+  &__thanks {
+    margin: auto;
+    width: 50%;
+    height: auto;
+  }
+}
