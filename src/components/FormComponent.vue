@@ -38,6 +38,7 @@ export default {
       },
     };
   },
+  emits: ["invalid"],
   computed: {
     ...mapState(useRatingStore, ["rating"]),
   },
@@ -49,7 +50,7 @@ export default {
     },
     handleSubmit(event: Event) {
       if (!this.rating) {
-        alert("Please set a rating before submitting.");
+        this.$emit("invalid");
         return;
       }
       this.setSubmitted();
